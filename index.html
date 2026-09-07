@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matisse Bertrand — Marketing Digital &amp; Gestion Commerciale</title>
+<meta name="description" content="Vue d'ensemble interactive du poste et des compétences de Matisse Bertrand, Chargé de marketing digital et de gestion commerciale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#0a0d12;
+    --bg-1:#10141c;
+    --glass:rgba(255,255,255,0.045);
+    --glass-strong:rgba(255,255,255,0.08);
+    --line:rgba(255,255,255,0.09);
+    --ink:#e9edf3;
+    --ink-dim:#8d99ab;
+    --ink-faint:#5c6577;
+    --cool:#7fb6cc;
+    --cool-soft:rgba(127,182,204,0.16);
+    --warm:#cfa662;
+    --warm-soft:rgba(207,166,98,0.14);
+    --radius-lg:22px;
+    --radius-sm:12px;
+    --serif:'Fraunces', serif;
+    --sans:'Space Grotesk', sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(60% 50% at 12% 8%, rgba(127,182,204,0.10), transparent 60%),
+      radial-gradient(50% 45% at 90% 18%, rgba(207,166,98,0.08), transparent 60%),
+      radial-gradient(70% 60% at 50% 100%, rgba(127,182,204,0.06), transparent 60%),
+      var(--bg-0);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:blur(18px) saturate(140%);
+    -webkit-backdrop-filter:blur(18px) saturate(140%);
+    background:rgba(10,13,18,0.62);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .brand{font-family:var(--serif); font-size:1.05rem; font-weight:600; letter-spacing:0.01em;}
+  .brand span{color:var(--cool);}
+  nav.links{display:flex; gap:26px; font-size:0.92rem; color:var(--ink-dim);}
+  nav.links a:hover{color:var(--ink);}
+  .lang-toggle{
+    display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden;
+    font-family:var(--mono); font-size:0.76rem;
+  }
+  .lang-toggle button{
+    background:transparent; border:none; color:var(--ink-faint); padding:6px 13px; cursor:pointer;
+    font-family:var(--mono); font-size:0.76rem; transition:all .2s ease;
+  }
+  .lang-toggle button.active{background:var(--glass-strong); color:var(--ink);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:96px 0 60px;}
+  .eyebrow{
+    color:var(--warm); font-family:var(--mono); font-size:0.78rem;
+    display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--warm); box-shadow:0 0 10px var(--warm);}
+  h1.hero-title{
+    font-family:var(--serif); font-weight:480; font-size:clamp(2.4rem, 5.4vw, 3.9rem);
+    line-height:1.06; max-width:15ch; color:var(--ink);
+  }
+  h1.hero-title em{font-style:italic; color:var(--cool);}
+  .hero-sub{margin-top:22px; max-width:52ch; color:var(--ink-dim); font-size:1.05rem;}
+  .hero-meta{display:flex; gap:36px; margin-top:44px; flex-wrap:wrap;}
+  .hero-meta .item{border-left:1px solid var(--line); padding-left:14px;}
+  .hero-meta .item b{display:block; font-family:var(--mono); font-size:1.5rem; color:var(--ink); font-weight:500;}
+  .hero-meta .item span{font-size:0.82rem; color:var(--ink-faint);}
+
+  /* ---------- Section shell ---------- */
+  section{padding:64px 0;}
+  .section-head{display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:34px; gap:20px; flex-wrap:wrap;}
+  .section-head h2{
+    font-family:var(--serif); font-weight:480; font-size:clamp(1.6rem,3vw,2.2rem); color:var(--ink);
+  }
+  .section-head p{color:var(--ink-faint); font-size:0.92rem; max-width:38ch;}
+
+  /* ---------- Timeline ---------- */
+  .timeline{position:relative; padding-left:2px;}
+  .timeline::before{
+    content:""; position:absolute; left:7px; top:6px; bottom:6px; width:1px;
+    background:linear-gradient(var(--cool), var(--warm));
+    opacity:0.4;
+  }
+  .tl-item{position:relative; padding-left:34px; padding-bottom:30px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:""; position:absolute; left:0; top:5px; width:15px; height:15px; border-radius:50%;
+    background:var(--bg-0); border:2px solid var(--cool);
+  }
+  .tl-item.now::before{border-color:var(--warm); box-shadow:0 0 0 4px var(--warm-soft);}
+  .tl-date{font-family:var(--mono); font-size:0.78rem; color:var(--cool);}
+  .tl-item.now .tl-date{color:var(--warm);}
+  .tl-title{font-size:1.02rem; font-weight:600; margin-top:4px;}
+  .tl-desc{color:var(--ink-dim); font-size:0.92rem; margin-top:4px; max-width:52ch;}
+
+  /* ---------- Glass panel base ---------- */
+  .panel{
+    background:var(--glass);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    backdrop-filter:blur(20px) saturate(130%);
+    -webkit-backdrop-filter:blur(20px) saturate(130%);
+    position:relative;
+    overflow:hidden;
+  }
+  .panel::after{
+    content:""; position:absolute; inset:0; border-radius:inherit; padding:1px;
+    background:linear-gradient(140deg, rgba(255,255,255,0.14), transparent 40%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude;
+    pointer-events:none;
+  }
+
+  /* ---------- Value levers (bento) ---------- */
+  .bento{
+    display:grid; grid-template-columns:repeat(6,1fr); gap:16px;
+  }
+  .lever{grid-column:span 3; padding:26px 26px 22px;}
+  .lever.big{grid-column:span 6;}
+  @media (min-width:760px){
+    .lever:nth-child(1){grid-column:span 4;}
+    .lever:nth-child(2){grid-column:span 2;}
+    .lever:nth-child(3){grid-column:span 2;}
+    .lever:nth-child(4){grid-column:span 2;}
+    .lever:nth-child(5){grid-column:span 2;}
+    .lever:nth-child(6){grid-column:span 4;}
+  }
+  .lever .num{font-family:var(--mono); font-size:0.75rem; color:var(--ink-faint);}
+  .lever h3{font-family:var(--serif); font-size:1.18rem; font-weight:600; margin-top:10px; color:var(--ink);}
+  .lever p{color:var(--ink-dim); font-size:0.88rem; margin-top:8px;}
+  .lever .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:16px;}
+  .lever .tags span{
+    font-family:var(--mono); font-size:0.7rem; padding:4px 9px; border-radius:999px;
+    background:var(--cool-soft); color:var(--cool); border:1px solid rgba(127,182,204,0.25);
+  }
+
+  /* ---------- Skills board (interactive) ---------- */
+  .filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px;}
+  .filter-btn{
+    font-family:var(--sans); font-size:0.84rem; padding:8px 16px; border-radius:999px;
+    border:1px solid var(--line); background:transparent; color:var(--ink-dim); cursor:pointer;
+    transition:all .18s ease;
+  }
+  .filter-btn:hover{border-color:var(--cool); color:var(--ink);}
+  .filter-btn.active{background:var(--ink); color:var(--bg-0); border-color:var(--ink); font-weight:600;}
+  .skills-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(210px,1fr)); gap:14px;}
+  .skill-card{
+    padding:18px 18px 16px; cursor:default;
+    transition:transform .22s ease, border-color .22s ease;
+  }
+  .skill-card:hover{transform:translateY(-3px); border-color:rgba(127,182,204,0.35);}
+  .skill-card .cat{font-family:var(--mono); font-size:0.68rem; color:var(--warm); letter-spacing:0.02em;}
+  .skill-card h4{font-size:0.98rem; font-weight:600; margin-top:8px;}
+  .skill-card small{color:var(--ink-faint); font-size:0.78rem; display:block; margin-top:4px;}
+  .skill-card.hidden{display:none;}
+
+  /* ---------- Results ---------- */
+  .results-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
+  .result-card{padding:26px;}
+  .result-card .big-num{font-family:var(--mono); font-size:2.3rem; color:var(--cool); font-weight:500;}
+  .result-card.warm .big-num{color:var(--warm);}
+  .result-card .label{color:var(--ink-dim); font-size:0.86rem; margin-top:8px;}
+  .result-card .ctx{color:var(--ink-faint); font-size:0.76rem; margin-top:10px; padding-top:10px; border-top:1px solid var(--line);}
+
+  /* ---------- SEO table ---------- */
+  .seo-note{
+    display:flex; align-items:center; gap:14px; padding:18px 22px; margin-bottom:20px;
+  }
+  .seo-note .big-num{font-family:var(--mono); font-size:1.7rem; color:var(--warm);}
+  .seo-note p{color:var(--ink-dim); font-size:0.88rem;}
+
+  /* ---------- Contact ---------- */
+  .contact-panel{padding:44px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;}
+  .contact-panel h2{font-family:var(--serif); font-size:1.7rem; font-weight:480;}
+  .contact-panel p{color:var(--ink-dim); margin-top:8px; max-width:40ch; font-size:0.94rem;}
+  .btn-row{display:flex; gap:12px; flex-wrap:wrap;}
+  .btn{
+    padding:12px 22px; border-radius:999px; font-size:0.9rem; font-weight:600;
+    border:1px solid var(--line); transition:all .2s ease;
+  }
+  .btn.primary{background:var(--ink); color:var(--bg-0); border-color:var(--ink);}
+  .btn.primary:hover{background:var(--cool); border-color:var(--cool);}
+  .btn.ghost:hover{border-color:var(--warm); color:var(--warm);}
+
+  footer{padding:32px 0 60px; text-align:center; color:var(--ink-faint); font-size:0.78rem;}
+
+  [data-i18n]{transition:opacity .15s ease;}
+
+  @media (max-width:640px){
+    .bento{grid-template-columns:1fr;}
+    .lever{grid-column:span 1 !important;}
+    .contact-panel{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Matisse Bertrand <span>·</span></div>
+    <nav class="links">
+      <a href="#parcours" data-i18n="nav.timeline">Parcours</a>
+      <a href="#fonctions" data-i18n="nav.functions">Fonctions</a>
+      <a href="#resultats" data-i18n="nav.results">Résultats</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang-toggle">
+      <button id="btn-fr" class="active">FR</button>
+      <button id="btn-en">EN</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow">Symétrie — Nîmes</span></div>
+    <h1 class="hero-title" data-i18n="hero.title">Marketing digital, <em>pensé comme un système de précision</em></h1>
+    <p class="hero-sub" data-i18n="hero.sub">Chargé de marketing digital et de gestion commerciale chez Symétrie, fabricant français de systèmes de positionnement de haute précision (hexapodes). Un poste transversal, construit progressivement depuis mai 2024.</p>
+    <div class="hero-meta">
+      <div class="item"><b>6</b><span data-i18n="hero.meta1">leviers de valeur pilotés</span></div>
+      <div class="item"><b>+18</b><span data-i18n="hero.meta2">compétences actives</span></div>
+      <div class="item"><b>2</b><span data-i18n="hero.meta3">langues de marché (FR/EN)</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="tl.heading">Évolution du poste</h2>
+      <p data-i18n="tl.sub">Un périmètre qui s'est élargi au rythme de la croissance de l'entreprise.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">14.05.2024</div>
+        <div class="tl-title" data-i18n="tl.item1.title">Arrivée en CDD</div>
+        <div class="tl-desc" data-i18n="tl.item1.desc">Communication LinkedIn, administration du site internet, marketing digital, création graphique.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">01.01.2025</div>
+        <div class="tl-title" data-i18n="tl.item2.title">Passage en CDI</div>
+        <div class="tl-desc" data-i18n="tl.item2.desc">Stratégie SEO/SEA, maquettage UX/UI, analyse KPI, coordination de prestataires.</div>
+      </div>
+      <div class="tl-item now">
+        <div class="tl-date" data-i18n="tl.item3.date">Aujourd'hui</div>
+        <div class="tl-title" data-i18n="tl.item3.title">Chargé de marketing digital et de gestion commerciale</div>
+        <div class="tl-desc" data-i18n="tl.item3.desc">Pilotage commercial complet de la marque Wyler, organisation de salons internationaux, motion design, rendus 3D.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leviers">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="lev.heading">Valeur créée</h2>
+      <p data-i18n="lev.sub">Six leviers apportés à Symétrie depuis mon arrivée.</p>
+    </div>
+    <div class="bento">
+      <div class="panel lever">
+        <div class="num">01</div>
+        <h3 data-i18n="lev.1.title">Développement de la visibilité digitale</h3>
+        <p data-i18n="lev.1.desc">Stratégie SEO internationale ayant permis à plusieurs pages produits d'atteindre la 1ère position Google sur des marchés clés, dont les États-Unis.</p>
+        <div class="tags"><span>SEO</span><span>SEMrush</span><span>Looker Studio</span></div>
+      </div>
+      <div class="panel lever">
+        <div class="num">02</div>
+        <h3 data-i18n="lev.2.title">Structuration des outils marketing</h3>
+        <p data-i18n="lev.2.desc">Mise en place du tracking et du suivi KPI (GA4, GSC, GTM) pour piloter la performance dans la durée.</p>
+        <div class="tags"><span>GA4</span><span>GTM</span></div>
+      </div>
+      <div class="panel lever">
+        <div class="num">03</div>
+        <h3 data-i18n="lev.3.title">Optimisation de l'acquisition</h3>
+        <p data-i18n="lev.3.desc">La part des leads générés par le site web est passée de 22% à 61% en deux ans, avec un coût par lead fortement réduit.</p>
+        <div class="tags"><span>Google Ads</span><span>SEA</span></div>
+      </div>
+      <div class="panel lever">
+        <div class="num">04</div>
+        <h3 data-i18n="lev.4.title">Développement commercial Wyler</h3>
+        <p data-i18n="lev.4.desc">Pilotage du pipe commercial via CRM, formation technique produit, administration des ventes en autonomie.</p>
+        <div class="tags"><span>CRM</span><span>ADV</span></div>
+      </div>
+      <div class="panel lever">
+        <div class="num">05</div>
+        <h3 data-i18n="lev.5.title">Coordination de projets transverses</h3>
+        <p data-i18n="lev.5.desc">Pilotage de prestataires externes pour la refonte complète du site internet Symétrie.</p>
+        <div class="tags"><span>WordPress</span><span>Figma</span></div>
+      </div>
+      <div class="panel lever">
+        <div class="num">06</div>
+        <h3 data-i18n="lev.6.title">Modernisation de la communication</h3>
+        <p data-i18n="lev.6.desc">Croissance continue de l'audience LinkedIn, largement au-delà de l'objectif fixé pour 2027, portée par du motion design et des rendus 3D réalistes.</p>
+        <div class="tags"><span>Premiere Pro</span><span>KeyShot</span><span>Motion Design</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fonctions">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="sk.heading">Vue d'ensemble des fonctions</h2>
+      <p data-i18n="sk.sub">Un poste résolument transversal — filtrez par domaine.</p>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="skills-grid" id="skills-grid"></div>
+  </div>
+</section>
+
+<section id="resultats">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="res.heading">Des résultats mesurables</h2>
+      <p data-i18n="res.sub">Évolutions exprimées en pourcentage.</p>
+    </div>
+    <div class="results-grid">
+      <div class="panel result-card">
+        <div class="big-num">+154%</div>
+        <div class="label" data-i18n="res.1">Chiffre d'affaires Wyler (2024 → 2025)</div>
+      </div>
+      <div class="panel result-card">
+        <div class="big-num">+85%</div>
+        <div class="label" data-i18n="res.2">Panier moyen</div>
+      </div>
+      <div class="panel result-card warm">
+        <div class="big-num">×3</div>
+        <div class="label" data-i18n="res.3">Leads générés par le site web (2024 → 2026 projeté)</div>
+      </div>
+      <div class="panel result-card">
+        <div class="big-num">22 → 61%</div>
+        <div class="label" data-i18n="res.4">Part des leads issus du site web</div>
+      </div>
+      <div class="panel result-card warm">
+        <div class="big-num">÷5</div>
+        <div class="label" data-i18n="res.5">Coût d'acquisition par lead</div>
+      </div>
+      <div class="panel result-card">
+        <div class="big-num">168%</div>
+        <div class="label" data-i18n="res.6">De l'objectif 2027 d'abonnés LinkedIn déjà atteint</div>
+      </div>
+    </div>
+
+    <div class="panel seo-note" style="margin-top:16px;">
+      <div class="big-num">9</div>
+      <p data-i18n="res.seo">pages produits en 1ère position Google sur des mots-clés stratégiques anglophones, dont "Hexapod" et "Mid-sized hexapod" — influence directe sur le positionnement de Symétrie aux États-Unis.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="panel contact-panel">
+      <div>
+        <h2 data-i18n="ct.title">Discutons</h2>
+        <p data-i18n="ct.sub">Disponible pour échanger sur une opportunité en marketing digital ou communication.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn primary" href="https://www.linkedin.com/" target="_blank" rel="noopener" data-i18n="ct.linkedin">LinkedIn</a>
+        <a class="btn ghost" href="mailto:contact@example.com" data-i18n="ct.email">Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" data-i18n="footer.text">Matisse Bertrand — Nîmes, France</div>
+</footer>
+
+<script>
+// ---------- Skills data ----------
+const skills = [
+  {cat:"marketing", name:"Stratégie SEO", tool:"Looker Studio / SEMrush"},
+  {cat:"marketing", name:"SEA", tool:"Google Ads"},
+  {cat:"marketing", name:"Gestion de site", tool:"WordPress"},
+  {cat:"marketing", name:"Tracking", tool:"GSC & GTM"},
+  {cat:"marketing", name:"Analyse KPI", tool:"GA4"},
+  {cat:"creation", name:"Création & MàJ supports", tool:"InDesign"},
+  {cat:"creation", name:"Design de stand & PLV", tool:"Illustrator"},
+  {cat:"creation", name:"Maquettage UI/UX", tool:"Figma"},
+  {cat:"creation", name:"Motion Design", tool:"Premiere Pro & After Effects"},
+  {cat:"creation", name:"Rendus 3D réalistes", tool:"KeyShot"},
+  {cat:"creation", name:"Post-traitement photo", tool:"Photoshop"},
+  {cat:"comm", name:"Marketing LinkedIn", tool:"Communication"},
+  {cat:"comm", name:"Contacts presse", tool:"Salons & événements"},
+  {cat:"comm", name:"Organisation de salons", tool:"International"},
+  {cat:"comm", name:"Veille concurrentielle", tool:"Marché"},
+  {cat:"commerce", name:"Gestion du pipe commercial", tool:"CRM"},
+  {cat:"commerce", name:"ADV", tool:"En l'absence du responsable"},
+  {cat:"commerce", name:"Formation technique produit", tool:"Wyler"},
+];
+const catLabels = {
+  fr:{all:"Tout", marketing:"Marketing digital", creation:"Création de contenu", comm:"Communication / Événementiel", commerce:"Commerce"},
+  en:{all:"All", marketing:"Digital marketing", creation:"Content creation", comm:"Communication / Events", commerce:"Commerce"}
+};
+let currentCat = "all";
+let currentLang = "fr";
+
+function renderFilters(){
+  const container = document.getElementById("filters");
+  container.innerHTML = "";
+  Object.keys(catLabels[currentLang]).forEach(key=>{
+    const b = document.createElement("button");
+    b.className = "filter-btn" + (key===currentCat ? " active":"");
+    b.textContent = catLabels[currentLang][key];
+    b.onclick = ()=>{ currentCat = key; renderFilters(); renderSkills(); };
+    container.appendChild(b);
+  });
+}
+function renderSkills(){
+  const grid = document.getElementById("skills-grid");
+  grid.innerHTML = "";
+  skills.forEach(s=>{
+    const card = document.createElement("div");
+    card.className = "panel skill-card" + (currentCat!=="all" && s.cat!==currentCat ? " hidden":"");
+    card.innerHTML = `<div class="cat">${catLabels[currentLang][s.cat]}</div><h4>${s.name}</h4><small>${s.tool}</small>`;
+    grid.appendChild(card);
+  });
+}
+
+// ---------- i18n ----------
+const translations = {
+  fr:{
+    "nav.timeline":"Parcours","nav.functions":"Fonctions","nav.results":"Résultats","nav.contact":"Contact",
+    "hero.eyebrow":"Symétrie — Nîmes",
+    "hero.title":"Marketing digital, <em>pensé comme un système de précision</em>",
+    "hero.sub":"Chargé de marketing digital et de gestion commerciale chez Symétrie, fabricant français de systèmes de positionnement de haute précision (hexapodes). Un poste transversal, construit progressivement depuis mai 2024.",
+    "hero.meta1":"leviers de valeur pilotés","hero.meta2":"compétences actives","hero.meta3":"langues de marché (FR/EN)",
+    "tl.heading":"Évolution du poste","tl.sub":"Un périmètre qui s'est élargi au rythme de la croissance de l'entreprise.",
+    "tl.item1.title":"Arrivée en CDD","tl.item1.desc":"Communication LinkedIn, administration du site internet, marketing digital, création graphique.",
+    "tl.item2.title":"Passage en CDI","tl.item2.desc":"Stratégie SEO/SEA, maquettage UX/UI, analyse KPI, coordination de prestataires.",
+    "tl.item3.date":"Aujourd'hui","tl.item3.title":"Chargé de marketing digital et de gestion commerciale","tl.item3.desc":"Pilotage commercial complet de la marque Wyler, organisation de salons internationaux, motion design, rendus 3D.",
+    "lev.heading":"Valeur créée","lev.sub":"Six leviers apportés à Symétrie depuis mon arrivée.",
+    "lev.1.title":"Développement de la visibilité digitale","lev.1.desc":"Stratégie SEO internationale ayant permis à plusieurs pages produits d'atteindre la 1ère position Google sur des marchés clés, dont les États-Unis.",
+    "lev.2.title":"Structuration des outils marketing","lev.2.desc":"Mise en place du tracking et du suivi KPI (GA4, GSC, GTM) pour piloter la performance dans la durée.",
+    "lev.3.title":"Optimisation de l'acquisition","lev.3.desc":"La part des leads générés par le site web est passée de 22% à 61% en deux ans, avec un coût par lead fortement réduit.",
+    "lev.4.title":"Développement commercial Wyler","lev.4.desc":"Pilotage du pipe commercial via CRM, formation technique produit, administration des ventes en autonomie.",
+    "lev.5.title":"Coordination de projets transverses","lev.5.desc":"Pilotage de prestataires externes pour la refonte complète du site internet Symétrie.",
+    "lev.6.title":"Modernisation de la communication","lev.6.desc":"Croissance continue de l'audience LinkedIn, largement au-delà de l'objectif fixé pour 2027, portée par du motion design et des rendus 3D réalistes.",
+    "sk.heading":"Vue d'ensemble des fonctions","sk.sub":"Un poste résolument transversal — filtrez par domaine.",
+    "res.heading":"Des résultats mesurables","res.sub":"Évolutions exprimées en pourcentage.",
+    "res.1":"Chiffre d'affaires Wyler (2024 → 2025)","res.2":"Panier moyen","res.3":"Leads générés par le site web (2024 → 2026 projeté)",
+    "res.4":"Part des leads issus du site web","res.5":"Coût d'acquisition par lead","res.6":"De l'objectif 2027 d'abonnés LinkedIn déjà atteint",
+    "res.seo":"pages produits en 1ère position Google sur des mots-clés stratégiques anglophones, dont \"Hexapod\" et \"Mid-sized hexapod\" — influence directe sur le positionnement de Symétrie aux États-Unis.",
+    "ct.title":"Discutons","ct.sub":"Disponible pour échanger sur une opportunité en marketing digital ou communication.",
+    "ct.linkedin":"LinkedIn","ct.email":"Email",
+    "footer.text":"Matisse Bertrand — Nîmes, France"
+  },
+  en:{
+    "nav.timeline":"Journey","nav.functions":"Functions","nav.results":"Results","nav.contact":"Contact",
+    "hero.eyebrow":"Symétrie — Nîmes, France",
+    "hero.title":"Digital marketing, <em>engineered like a precision system</em>",
+    "hero.sub":"Digital marketing &amp; sales operations manager at Symétrie, a French manufacturer of high-precision positioning systems (hexapods). A cross-functional role, built up progressively since May 2024.",
+    "hero.meta1":"value levers led","hero.meta2":"active skills","hero.meta3":"market languages (FR/EN)",
+    "tl.heading":"Role evolution","tl.sub":"A scope that expanded alongside the company's growth.",
+    "tl.item1.title":"Joined on fixed-term contract","tl.item1.desc":"LinkedIn communication, website administration, digital marketing, graphic design.",
+    "tl.item2.title":"Moved to permanent contract","tl.item2.desc":"SEO/SEA strategy, UX/UI wireframing, KPI analysis, vendor coordination.",
+    "tl.item3.date":"Today","tl.item3.title":"Digital marketing &amp; sales operations manager","tl.item3.desc":"Full sales pipeline for the Wyler brand, international trade show organisation, motion design, 3D renders.",
+    "lev.heading":"Value created","lev.sub":"Six levers brought to Symétrie since joining.",
+    "lev.1.title":"Digital visibility growth","lev.1.desc":"International SEO strategy that brought several product pages to the #1 Google position in key markets, including the US.",
+    "lev.2.title":"Marketing tooling structure","lev.2.desc":"Set up tracking and KPI monitoring (GA4, GSC, GTM) to steer performance over time.",
+    "lev.3.title":"Acquisition optimisation","lev.3.desc":"The share of leads generated by the website grew from 22% to 61% in two years, with a sharply reduced cost per lead.",
+    "lev.4.title":"Wyler business development","lev.4.desc":"CRM pipeline management, technical product training, independent sales administration.",
+    "lev.5.title":"Cross-functional project coordination","lev.5.desc":"Managed external vendors for the full redesign of the Symétrie website.",
+    "lev.6.title":"Communication modernisation","lev.6.desc":"Continuous LinkedIn audience growth, well ahead of the 2027 target, driven by motion design and realistic 3D renders.",
+    "sk.heading":"Overview of functions","sk.sub":"A genuinely cross-functional role — filter by domain.",
+    "res.heading":"Measurable results","res.sub":"Growth expressed as percentages.",
+    "res.1":"Wyler revenue (2024 → 2025)","res.2":"Average order value","res.3":"Website-generated leads (2024 → projected 2026)",
+    "res.4":"Share of leads from the website","res.5":"Cost per acquired lead","res.6":"Of the 2027 LinkedIn follower target already reached",
+    "res.seo":"product pages ranking #1 on Google for strategic English-language keywords, including \"Hexapod\" and \"Mid-sized hexapod\" — a direct influence on Symétrie's US market positioning.",
+    "ct.title":"Let's talk","ct.sub":"Open to discussing an opportunity in digital marketing or communication.",
+    "ct.linkedin":"LinkedIn","ct.email":"Email",
+    "footer.text":"Matisse Bertrand — Nîmes, France"
+  }
+};
+
+function applyLang(lang){
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.getElementById("btn-fr").classList.toggle("active", lang==="fr");
+  document.getElementById("btn-en").classList.toggle("active", lang==="en");
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(translations[lang][key]) el.innerHTML = translations[lang][key];
+  });
+  renderFilters();
+  renderSkills();
+  try{ localStorage.setItem("lang", lang); }catch(e){}
+}
+
+document.getElementById("btn-fr").onclick = ()=>applyLang("fr");
+document.getElementById("btn-en").onclick = ()=>applyLang("en");
+
+let savedLang = "fr";
+try{ savedLang = localStorage.getItem("lang") || "fr"; }catch(e){}
+applyLang(savedLang);
+</script>
+
+</body>
+</html>
