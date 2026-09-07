@@ -12,7 +12,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2316181b'/%3E%3Ctext x='50' y='64' font-size='42' font-family='Georgia,serif' fill='%23f3f4f5' text-anchor='middle'%3EMB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -21,8 +21,9 @@
     --glass-strong:rgba(255,255,255,0.10);
     --line:rgba(255,255,255,0.11);
     --ink:#f3f4f5;
-    --ink-dim:#a2a7ab;
-    --ink-faint:#686d71;
+    --ink-dim:#bcc1c5;
+    --ink-faint:#8d9296;
+    --ink-mid:#9aa0a4;
     --neutral-soft:rgba(255,255,255,0.10);
     --cool:#7fb6cc;
     --cool-soft:rgba(127,182,204,0.16);
@@ -34,6 +35,7 @@
     --plum-soft:rgba(179,157,219,0.16);
     --radius-lg:20px;
     --display:'Clash Display', sans-serif;
+    --serif:'Fraunces', serif;
     --sans:'General Sans', sans-serif;
     --mono:'IBM Plex Mono', monospace;
   }
@@ -62,44 +64,47 @@
     border-bottom:1px solid var(--line);
   }
   header .wrap{display:flex; align-items:center; justify-content:space-between; height:56px;}
-  .brand{font-family:var(--display); font-size:1rem; font-weight:600;}
+  .brand{font-family:var(--display); font-size:0.92rem; font-weight:700; text-transform:uppercase; letter-spacing:0.01em;}
+  .brand .fn{color:var(--ink);}
+  .brand .ln{color:var(--ink-mid);}
   .brand span{color:var(--cool);}
   .lang-toggle{
     display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden;
   }
   .lang-toggle button{
     background:transparent; border:none; color:var(--ink-faint); padding:6px 12px; cursor:pointer;
-    font-family:var(--mono); font-size:0.72rem; transition:all .2s ease;
+    font-family:var(--mono); font-size:0.75rem; transition:all .2s ease;
   }
   .lang-toggle button.active{background:var(--glass-strong); color:var(--ink);}
 
-  section{padding:40px 0;}
+  section{padding:40px 0; border-top:1px solid var(--line);}
+  section.hero{border-top:none;}
   .section-head{margin-bottom:22px;}
-  .section-head .kicker{font-family:var(--mono); font-size:0.72rem; color:var(--ink-faint); letter-spacing:0.04em; margin-bottom:8px; display:block;}
+  .section-head .kicker{font-family:var(--mono); font-size:0.75rem; color:var(--ink-faint); letter-spacing:0.04em; margin-bottom:8px; display:block;}
   .section-head h2{font-family:var(--display); font-weight:600; font-size:clamp(1.4rem,5vw,1.85rem); color:var(--ink);}
-  .section-head p{color:var(--ink-faint); font-size:0.88rem; margin-top:8px; max-width:46ch;}
+  .section-head p{color:var(--ink-faint); font-size:0.9rem; margin-top:8px; max-width:46ch;}
 
   /* ---------- Hero ---------- */
   .hero{padding:36px 0 8px;}
-  .hero-top{display:flex; align-items:stretch; gap:16px; margin-bottom:18px;}
-  .hero-heading{flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center;}
+  .hero-top{display:flex; flex-direction:column; margin-bottom:18px;}
+  .hero-heading{}
   .avatar{
-    aspect-ratio:1/1; align-self:stretch; min-width:64px; max-width:132px; flex-shrink:0;
+    width:76px; height:76px; flex-shrink:0; margin-bottom:16px;
     border-radius:50%; overflow:hidden;
     border:1px solid var(--line);
     box-shadow:0 0 0 5px rgba(255,255,255,0.035), 0 12px 28px rgba(0,0,0,0.35);
     background:#2a2d31;
   }
-  .avatar img{width:100%; height:100%; object-fit:cover; display:block;}
-  .eyebrow{color:var(--ink-dim); font-family:var(--mono); font-size:0.74rem; display:flex; align-items:center; gap:9px; margin-bottom:10px;}
+  .avatar img{width:100%; height:100%; object-fit:cover; display:block; border-radius:50%;}
+  .eyebrow{color:var(--ink-dim); font-family:var(--mono); font-size:0.8rem; display:flex; align-items:center; gap:9px; margin-bottom:10px;}
   .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--ink); box-shadow:0 0 6px rgba(255,255,255,0.5);}
-  h1.hero-title{font-family:var(--display); font-weight:600; font-size:clamp(1.4rem,6vw,2.1rem); line-height:1.16; color:var(--ink);}
+  h1.hero-title{font-family:var(--serif); font-weight:480; font-size:clamp(1.7rem,7vw,2.3rem); line-height:1.14; color:var(--ink);}
   .hero-sub{margin-top:16px; color:var(--ink-dim); font-size:0.95rem;}
 
   .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px;}
   .badge{
     display:flex; align-items:center; gap:7px;
-    font-size:0.78rem; padding:8px 13px; border-radius:999px;
+    font-size:0.85rem; padding:8px 13px; border-radius:999px;
     background:var(--glass); border:1px solid var(--line); color:var(--ink-dim);
     backdrop-filter:blur(14px) saturate(140%); -webkit-backdrop-filter:blur(14px) saturate(140%);
   }
@@ -122,7 +127,7 @@
   /* ---------- Skills board ---------- */
   .filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px;}
   .filter-btn{
-    font-family:var(--sans); font-size:0.82rem; padding:9px 15px; border-radius:999px;
+    font-family:var(--sans); font-size:0.85rem; padding:9px 15px; border-radius:999px;
     border:1px solid var(--line); background:var(--glass); color:var(--ink-dim); cursor:pointer;
     backdrop-filter:blur(14px) saturate(140%); -webkit-backdrop-filter:blur(14px) saturate(140%);
   }
@@ -132,9 +137,9 @@
   .skills-grid{display:grid; grid-template-columns:1fr; gap:12px;}
   @media (min-width:520px){ .skills-grid{grid-template-columns:1fr 1fr;} }
   .skill-card{padding:18px 18px 18px 16px; border-left:3px solid transparent;}
-  .skill-card .cat{font-family:var(--mono); font-size:0.66rem;}
-  .skill-card h4{font-size:0.96rem; font-weight:600; margin-top:7px;}
-  .skill-card small{color:var(--ink-faint); font-size:0.78rem; display:block; margin-top:4px;}
+  .skill-card .cat{font-family:var(--mono); font-size:0.75rem;}
+  .skill-card h4{font-size:1rem; font-weight:600; margin-top:7px;}
+  .skill-card small{color:var(--ink-faint); font-size:0.85rem; display:block; margin-top:4px;}
   .skill-card.hidden{display:none;}
   .skill-card.cat-marketing{border-left-color:var(--cool);} .skill-card.cat-marketing .cat{color:var(--cool);}
   .skill-card.cat-creation{border-left-color:var(--warm);} .skill-card.cat-creation .cat{color:var(--warm);}
@@ -143,12 +148,12 @@
 
   /* ---------- Commercial focus ---------- */
   .commerce-panel{padding:24px 20px;}
-  .commerce-panel p{color:var(--ink-dim); font-size:0.92rem; margin-top:12px;}
+  .commerce-panel p{color:var(--ink-dim); font-size:0.95rem; margin-top:12px;}
   .commerce-panel p:first-of-type{margin-top:0;}
   .commerce-panel p strong{color:var(--ink); font-weight:600;}
   .trend-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;}
   .trend{
-    display:flex; align-items:center; gap:7px; font-size:0.78rem; padding:8px 13px; border-radius:999px;
+    display:flex; align-items:center; gap:7px; font-size:0.85rem; padding:8px 13px; border-radius:999px;
     background:var(--plum-soft); color:var(--plum); border:1px solid rgba(179,157,219,0.3);
     backdrop-filter:blur(14px) saturate(140%); -webkit-backdrop-filter:blur(14px) saturate(140%);
   }
@@ -163,25 +168,25 @@
     font-size:0.95rem; margin-bottom:12px;
   }
   .trend-card.down .arrow{background:var(--cool-soft); color:var(--cool);}
-  .trend-card h4{font-size:0.98rem; font-weight:600;}
-  .trend-card p{color:var(--ink-faint); font-size:0.84rem; margin-top:6px;}
+  .trend-card h4{font-size:1rem; font-weight:600;}
+  .trend-card p{color:var(--ink-faint); font-size:0.85rem; margin-top:6px;}
   .trend-card .big-num{font-family:var(--mono); font-size:1.55rem; font-weight:500; display:block; margin-bottom:10px; color:var(--ink);}
 
   /* ---------- Contact section (in-page) ---------- */
   .contact-panel{padding:28px 22px;}
-  .contact-panel h2{font-family:var(--display); font-size:1.5rem; font-weight:600;}
-  .contact-panel p{color:var(--ink-dim); margin-top:8px; font-size:0.9rem;}
+  .contact-panel h2{font-family:var(--display); font-size:clamp(1.4rem,5vw,1.85rem); font-weight:600;}
+  .contact-panel p{color:var(--ink-dim); margin-top:8px; font-size:0.95rem;}
   .contact-list{margin-top:20px; display:flex; flex-direction:column; gap:10px;}
   .contact-row{
     display:flex; align-items:center; justify-content:space-between; gap:12px;
     padding:14px 16px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,0.035);
     backdrop-filter:blur(14px) saturate(140%); -webkit-backdrop-filter:blur(14px) saturate(140%);
   }
-  .contact-row .lbl{font-size:0.72rem; color:var(--ink-faint); font-family:var(--mono);}
-  .contact-row .val{font-size:0.94rem; font-weight:500; margin-top:2px;}
-  .contact-row .go{color:var(--ink); font-size:0.8rem; font-weight:600;}
+  .contact-row .lbl{font-size:0.75rem; color:var(--ink-faint); font-family:var(--mono);}
+  .contact-row .val{font-size:0.95rem; font-weight:500; margin-top:2px;}
+  .contact-row .go{color:var(--ink); font-size:0.85rem; font-weight:600;}
 
-  footer{padding:26px 0 20px; text-align:center; color:var(--ink-faint); font-size:0.76rem;}
+  footer{padding:26px 0 20px; text-align:center; color:var(--ink-faint); font-size:0.8rem; border-top:1px solid var(--line);}
 
   /* ---------- Fixed mobile action bar ---------- */
   .action-bar{
@@ -194,7 +199,7 @@
   }
   .action-bar a{
     flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:5px; padding:10px 4px 9px; font-size:0.7rem; color:var(--ink); font-family:var(--sans); font-weight:600;
+    gap:5px; padding:10px 4px 9px; font-size:0.75rem; color:var(--ink); font-family:var(--sans); font-weight:600;
   }
   .action-bar a .ic{
     display:flex; align-items:center; justify-content:center;
@@ -217,7 +222,7 @@
 
 <header>
   <div class="wrap">
-    <div class="brand">Matisse Bertrand</div>
+    <div class="brand"><span class="fn">Matisse</span> <span class="ln">Bertrand</span></div>
     <div class="lang-toggle">
       <button id="btn-fr" class="active">FR</button>
       <button id="btn-en">EN</button>
@@ -228,15 +233,14 @@
 <section class="hero">
   <div class="wrap">
     <div class="hero-top">
-      <div class="avatar"><img src="photo.jpg" alt="Matisse Bertrand" width="100" height="100"></div>
+      <div class="avatar"><img src="photo.jpg" alt="Matisse Bertrand" width="76" height="76"></div>
       <div class="hero-heading">
-        <div class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow">Symétrie — Nîmes, France</span></div>
         <h1 class="hero-title" data-i18n="hero.title">Chargé MarCom & gestion commerciale en autonomie complète</h1>
       </div>
     </div>
     <p class="hero-sub" data-i18n="hero.sub">Depuis mon arrivée chez Symétrie, mes fonctions n'ont cessé de s'élargir pour s'adapter à un marché technique et international. J'ai développé un savoir-faire transversal couvrant l'ensemble de la chaîne marketing.</p>
     <div class="badges">
-      <div class="badge"><span class="ic"></span><span data-i18n="badge.1">Seul·e au service marketing depuis mai 2024</span></div>
+      <div class="badge"><span class="ic"></span><span data-i18n="badge.1">Seul au service marketing depuis mai 2024</span></div>
       <div class="badge"><span class="ic"></span><span data-i18n="badge.2">Autonomie complète sur le pilotage</span></div>
       <div class="badge"><span class="ic"></span><span data-i18n="badge.3">Interlocuteur unique sur l'ensemble du périmètre</span></div>
       <div class="badge"><span class="ic"></span><span data-i18n="badge.4">Force de proposition sur les décisions marketing</span></div>
@@ -344,23 +348,23 @@
 
 <script>
 const skills = [
-  {cat:"marketing", name:"Stratégie SEO", tool:"Looker Studio / SEMrush"},
-  {cat:"marketing", name:"SEA", tool:"Google Ads"},
+  {cat:"marketing", name:"Stratégie de référencement naturel", tool:"Looker Studio · SEMrush"},
+  {cat:"marketing", name:"Référencement payant", tool:"Google Ads"},
   {cat:"marketing", name:"Gestion de site", tool:"WordPress"},
-  {cat:"marketing", name:"Tracking", tool:"GSC & GTM"},
-  {cat:"marketing", name:"Analyse KPI", tool:"GA4"},
-  {cat:"creation", name:"Création & MàJ supports", tool:"InDesign"},
-  {cat:"creation", name:"Design de stand & PLV", tool:"Illustrator"},
-  {cat:"creation", name:"Maquettage UI/UX", tool:"Figma"},
-  {cat:"creation", name:"Motion Design", tool:"Premiere Pro & After Effects"},
+  {cat:"marketing", name:"Suivi analytique", tool:"Google Search Console · Google Tag Manager"},
+  {cat:"marketing", name:"Analyse de performance", tool:"Google Analytics 4"},
+  {cat:"creation", name:"Création et mise à jour des supports", tool:"Adobe InDesign"},
+  {cat:"creation", name:"Design de stands et supports imprimés", tool:"Adobe Illustrator"},
+  {cat:"creation", name:"Maquettage d'interfaces utilisateur", tool:"Figma"},
+  {cat:"creation", name:"Motion Design", tool:"Adobe Premiere Pro · Adobe After Effects"},
   {cat:"creation", name:"Rendus 3D réalistes", tool:"KeyShot"},
-  {cat:"creation", name:"Post-traitement photo", tool:"Photoshop"},
+  {cat:"creation", name:"Post-traitement photo", tool:"Adobe Photoshop"},
   {cat:"comm", name:"Marketing LinkedIn", tool:"Communication"},
-  {cat:"comm", name:"Contacts presse", tool:"Salons & événements"},
+  {cat:"comm", name:"Contacts presse", tool:"Salons · Événements"},
   {cat:"comm", name:"Organisation de salons", tool:"International"},
   {cat:"comm", name:"Veille concurrentielle", tool:"Marché"},
-  {cat:"commerce", name:"Gestion du pipe commercial", tool:"CRM"},
-  {cat:"commerce", name:"ADV", tool:"En l'absence du responsable"},
+  {cat:"commerce", name:"Gestion du pipe commercial", tool:"Customer Relationship Management"},
+  {cat:"commerce", name:"Administration des ventes", tool:"En l'absence du responsable"},
   {cat:"commerce", name:"Formation technique produit", tool:"Wyler AG"},
 ];
 const catLabels = {
@@ -396,10 +400,9 @@ function renderSkills(){
 
 const translations = {
   fr:{
-    "hero.eyebrow":"Symétrie — Nîmes, France",
     "hero.title":"Chargé MarCom & gestion commerciale en autonomie complète",
     "hero.sub":"Depuis mon arrivée chez Symétrie, mes fonctions n'ont cessé de s'élargir pour s'adapter à un marché technique et international. J'ai développé un savoir-faire transversal couvrant l'ensemble de la chaîne marketing.",
-    "badge.1":"Seul·e au service marketing depuis mai 2024","badge.2":"Autonomie complète sur le pilotage",
+    "badge.1":"Seul au service marketing depuis mai 2024","badge.2":"Autonomie complète sur le pilotage",
     "badge.3":"Interlocuteur unique sur l'ensemble du périmètre","badge.4":"Force de proposition sur les décisions marketing",
     "sk.kicker":"VUE D'ENSEMBLE","sk.heading":"Mes fonctions actuelles",
     "sk.sub":"De la stratégie d'acquisition à la création de contenu, un même poste couvre aujourd'hui l'ensemble de la chaîne marketing. Filtrez par domaine pour explorer chaque compétence en détail.",
@@ -419,7 +422,6 @@ const translations = {
     "footer.text":"Matisse Bertrand — Nîmes, France"
   },
   en:{
-    "hero.eyebrow":"Symétrie — Nîmes, France",
     "hero.title":"MarCom & sales operations lead, run in complete autonomy",
     "hero.sub":"Since joining Symétrie, my role has kept expanding to adapt to a technical, international market. I've built cross-functional expertise covering the full marketing chain.",
     "badge.1":"Sole marketing team member since May 2024","badge.2":"Full autonomy over strategy and execution",
